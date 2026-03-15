@@ -3,6 +3,7 @@ import tkinter.messagebox as messagebox
 from ui.pdf_viewer import PDFViewer
 from ui.mp3_player import MP3Player
 from ui.mp4_player import MP4Player
+from ui.photo_viewer import PhotoViewer
 
 
 class MainWindow(ctk.CTk):
@@ -37,6 +38,7 @@ class MainWindow(ctk.CTk):
         self.tab_view.add("PDF")
         self.tab_view.add("MP3")
         self.tab_view.add("MP4")
+        self.tab_view.add("Photos")
 
         self.tab_view.set("PDF")
 
@@ -48,6 +50,9 @@ class MainWindow(ctk.CTk):
 
         self.mp4_frame = MP4Player(self.tab_view.tab("MP4"))
         self.mp4_frame.pack(fill="both", expand=True, padx=10, pady=10)
+
+        self.photo_frame = PhotoViewer(self.tab_view.tab("Photos"))
+        self.photo_frame.pack(fill="both", expand=True, padx=10, pady=10)
 
         self.gem_enabled = False
 
